@@ -1,8 +1,0 @@
-<siebel:Applet name="activityfeed" type="Form">
-  <siebel:FormBody>
-    <h2>February 2019</h2><div class="activity-item">
-<p>Brandie Knight - Appointment</p>
-<p>Created by Brandie Knight at Feb 13, 2019, 8:45 AM</p>
-</div> Add more items similarly 
-  </siebel:FormBody>
-</siebel:Applet>

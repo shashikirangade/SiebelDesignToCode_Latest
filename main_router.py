@@ -488,48 +488,61 @@ def generate_applet_file(child_data: dict, target_dir: Path):
         "status": "ok"
     }
 def generate_siebel_templates_from_hierarchy(html: str, manifest: dict, out_dir: Path, workdir: str):
-    """Generate Siebel templates using hierarchical manifest structure"""
-    wt = _webtemplate_dir(out_dir)  # write SWT files inside <ts>/webtemplate/
-    soup = BeautifulSoup(html, "lxml")
+    """Generate Siebel templates using hierarchical manifest structure.
+       Handles applets directly under containers and nested containers.
+    """
+    wt = _webtemplate_dir(out_dir)  # ensure <ts>/webtemplate/ exists
+    soup = BeautifulSoup(html, "lxml")       # source DOM
+    view_soup = BeautifulSoup(html, "lxml")  # copy to become the view SWT
     written = []
 
-    # Create a copy for the view template
-    view_soup = BeautifulSoup(html, "lxml")
+    def process_container(container_cfg, src_root, view_root):
+        sel = container_cfg.get("selector", "")
+        if not sel:
+            return
+        src_container_el = src_root.select_one(sel)
+        view_container_el = view_root.select_one(sel)
+        if not src_container_el or not view_container_el:
+            return
 
-    for container in manifest.get("containers", []):
-        container_el = soup.select_one(container["selector"])
-        if not container_el:
-            continue
-
-        view_container_el = view_soup.select_one(container["selector"])
-        if not view_container_el:
-            continue
-
-        # Clear container content but keep the structure
+        # clear container content in the view copy
         view_container_el.clear()
 
-        # Process children components
-        for child_config in container.get("children", []):
-            child_el = container_el.select_one(child_config["selector"])
-            if not child_el:
+        # 1) process applets directly under this container
+        for applet_cfg in container_cfg.get("applets", []):
+            app_sel = applet_cfg.get("selector", "")
+            if not app_sel:
+                continue
+            applet_el = src_container_el.select_one(app_sel)
+            if not applet_el:
                 continue
 
-            # Generate applet file into webtemplate/
-            child_data = {"config": child_config, "element": child_el}
+            child_data = {"config": applet_cfg, "element": applet_el}
             applet_result = generate_applet_file(child_data, wt)
-            # add a direct URL using the /download/<workdir>/webtemplate/<name> route
             applet_result["url"] = f"/download/{workdir}/webtemplate/{applet_result['file']}"
             written.append(applet_result)
 
-            # Add applet include to view template
-            applet_tag = view_soup.new_tag("siebel:IncludeApplet")
-            applet_tag['name'] = applet_result["safe"]
-            applet_tag['file'] = f"applet_{applet_result['safe']}.swt"
-            view_container_el.append(applet_tag)
+            # add include tag in the view
+            inc = view_soup.new_tag("siebel:IncludeApplet")
+            inc["name"] = applet_result["safe"]
+            inc["file"] = f"applet_{applet_result['safe']}.swt"
+            view_container_el.append(inc)
 
-    # Write view template into webtemplate/
+        # 2) recurse into nested containers
+        nested = (container_cfg.get("children") or []) + (container_cfg.get("containers") or [])
+        for child_container in nested:
+            process_container(child_container, src_container_el, view_container_el)
+
+    # main loop over top-level containers
+    containers = (manifest.get("page", {}).get("containers")
+                  or manifest.get("containers")
+                  or [])
+    for container_cfg in containers:
+        process_container(container_cfg, soup, view_soup)
+
+    # write final view template
     view_file = _webtemplate_dir(out_dir) / "view_template.swt"
-    view_file.write_text(str(view_soup), "utf-8")
+    view_file.write_text(str(view_soup), encoding="utf-8")
 
     return {
         "applets": written,

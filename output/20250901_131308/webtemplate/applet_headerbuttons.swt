@@ -1,6 +1,0 @@
-<siebel:Applet name="headerbuttons" type="List">
-  <siebel:ListHeader/>
-  <siebel:ListRows>
-    <button>Appointment</button><button>Call</button><button>Email</button><button>Notes</button>
-  </siebel:ListRows>
-</siebel:Applet>

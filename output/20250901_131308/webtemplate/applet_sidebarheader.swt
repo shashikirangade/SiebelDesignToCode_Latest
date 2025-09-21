@@ -1,8 +1,0 @@
-<siebel:Applet name="sidebarheader" type="Form">
-  <siebel:FormBody>
-    <img alt="ABC Construction Logo" src="logo.png"/><div>
-<h1>ABC Construction</h1>
-<p>3712233445<br/>www.abgsc.com<br/>Darziema 91</p>
-</div>
-  </siebel:FormBody>
-</siebel:Applet>
