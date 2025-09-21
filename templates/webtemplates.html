@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <div class="panel-head">
+    <h2>Siebel WebTemplate</h2>
+    <div class="panel-actions">
+      <select id="modelSelect" class="select">
+        <option value="gpt-4o" selected>gpt-4o</option>
+        <option value="gpt-4o-mini">gpt-4o-mini</option>
+        <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+        <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+        <!-- optional future proof -->
+        <option value="gemini-2.5-pro">gemini-2.5-pro (preview)</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="errorBanner" class="error-banner" style="display:none;"></div>
+
+  <div class="uploader">
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input id="imageInput" type="file" name="image" accept="image/*" required />
+      <button class="btn" type="submit">Preview Siebel WebTemplate</button>
+    </form>
+    <div class="hint">Upload a screen and we’ll generate semantic HTML, CSS, and a manifest. We won’t overwrite your logic.</div>
+  </div>
+
+  <div id="previewBlock" class="preview-block" style="display:none;">
+    <iframe id="previewFrame"></iframe>
+    <div class="preview-actions">
+      <button id="btnGenerate" class="btn primary">Generate Siebel WebTemplate</button>
+      <button id="btnRetry" class="btn">Didn’t like response? Generate again</button>
+      <a id="btnRaw" class="btn link" href="#" download>Download Raw Response</a>
+      <a id="btnHtml" class="btn link" href="#" download>Download HTML</a>
+    </div>
+  </div>
+
+  <!-- Side-by-side code blocks -->
+  <div id="codeCompare" class="code-compare" style="display:none;">
+    <!-- View WebTemplate -->
+    <div class="code-wrap">
+      <div class="code-head">
+        <span>View WebTemplate</span>
+        <button class="btn sm" onclick="copyCode('viewCode')">Copy</button>
+      </div>
+      <pre id="viewCode" class="code-area"></pre>
+    </div>
+
+    <!-- Applet Template -->
+    <div class="code-wrap">
+      <div class="code-head">
+        <span>Applet Template</span>
+        <button class="btn sm" onclick="copyCode('appletCode')">Copy</button>
+      </div>
+      <pre id="appletCode" class="code-area"></pre>
+    </div>
+  </div>
+</section>
+{% endblock %}

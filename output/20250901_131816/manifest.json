@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "containers": [
+    {
+      "name": "Header",
+      "role": "banner",
+      "selector": ".header",
+      "type": "container",
+      "children": [
+        {
+          "name": "HeaderInfo",
+          "role": "content",
+          "selector": ".header__info",
+          "type": "applet"
+        },
+        {
+          "name": "HeaderActions",
+          "role": "navigation",
+          "selector": ".header__actions",
+          "type": "applet"
+        }
+      ]
+    },
+    {
+      "name": "MainContent",
+      "role": "main",
+      "selector": ".main-content",
+      "type": "container",
+      "children": [
+        {
+          "name": "Sidebar",
+          "role": "complementary",
+          "selector": ".sidebar",
+          "type": "container",
+          "children": [
+            {
+              "name": "ContactsSection",
+              "role": "list",
+              "selector": ".contacts",
+              "type": "applet",
+              "item_selector": ".contact-item"
+            },
+            {
+              "name": "ServiceRequestsSection",
+              "role": "list",
+              "selector": ".service-requests",
+              "type": "applet",
+              "item_selector": ".service-request-item"
+            },
+            {
+              "name": "OpportunitiesSection",
+              "role": "list",
+              "selector": ".opportunities",
+              "type": "applet",
+              "item_selector": ".opportunity-item"
+            }
+          ]
+        },
+        {
+          "name": "ActivityFeed",
+          "role": "region",
+          "selector": ".activity-feed",
+          "type": "container",
+          "children": [
+            {
+              "name": "ActivityItem",
+              "role": "list",
+              "selector": ".activity-feed__list",
+              "type": "applet",
+              "item_selector": ".activity-item"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

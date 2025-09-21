@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<section class="panel chat-panel">
+  <div class="panel-head">
+    <h2>Generate Client Side Script</h2>
+    <div class="panel-actions">
+      <select id="ctxType" class="select">
+        <option value="">Any Context</option>
+        <option value="PM">PM</option>
+        <option value="PR">PR</option>
+        <option value="WebTemplate">WebTemplate</option>
+        <option value="BS">Business Service</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="chatWindow" class="chat-window"></div>
+
+  <div class="chat-input">
+    <textarea id="chatMsg" rows="2" placeholder="Ask about Open UI… e.g., Generate PR to add KPI banner above SR List Applet"></textarea>
+    <button id="chatSend" class="btn primary" type="button">Send</button>
+  </div>
+</section>
+{% endblock %}

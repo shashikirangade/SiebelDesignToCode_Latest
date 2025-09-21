@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel pretty-form">
+  <div class="panel-head">
+    <h2>PM/PR Generator</h2>
+  </div>
+
+  <form id="pmprForm" class="card form-grid" onsubmit="return false;">
+    <div class="field">
+      <label for="artifactType">Artifact</label>
+      <div class="select-wrap">
+        <select id="artifactType" class="input">
+          <option value="pm">Presentation Model (PM)</option>
+          <option value="pr">Physical Renderer (PR)</option>
+        </select>
+        <span class="chev">▾</span>
+      </div>
+      <small class="hint">Choose what to scaffold.</small>
+    </div>
+
+    <div class="field">
+      <label for="artifactName">Name</label>
+      <input id="artifactName" class="input" type="text" placeholder="e.g., AccountList" />
+      <small class="hint">Alphanumeric, no spaces (we’ll sanitize).</small>
+    </div>
+
+    <div class="actions">
+      <button id="btnGenPMPR" class="btn primary" type="button">Generate</button>
+    </div>
+  </form>
+
+  <div id="codeBlockWrap" class="code-wrap card" style="display:none;">
+    <div class="code-head">
+      <span id="codeTitle">Generated Code</span>
+      <button id="btnCopyCode" class="btn sm" type="button">Copy</button>
+    </div>
+    <pre class="code-area"><code id="generatedCode"></code></pre>
+  </div>
+</section>
+<script>
+    (function(){
+      const $ = (sel) => document.querySelector(sel);
+      const err = $("#pmprError");
+      const out = $("#codeBlockWrap");
+      const codeEl = $("#generatedCode");
+      const copyBtn = $("#btnCopyCode");
+      const dlBtn = $("#pmprDownloadBtn");
+    
+      function showError(msg){ err.textContent = msg; err.style.display = msg ? "block":"none"; }
+      function toast(msg){
+        const t = document.getElementById("dtc-toaster");
+        t.textContent = msg; t.style.display = "block";
+        setTimeout(()=> t.style.display = "none", 1800);
+      }
+    
+      $("#btnGenPMPR").addEventListener("click", async () => {
+        //showError("");
+        const kind = $("#artifactType").value.trim();
+        const name = $("#artifactName").value.trim();
+        if(!kind || !name){ showError("Choose PM/PR and enter a name."); return; }
+    
+        const fd = new FormData();
+        fd.append("kind", kind);
+        fd.append("name", name);
+    
+        try{
+          const res = await fetch("/api/pmpr/generate", { method:"POST", body: fd });
+          const data = await res.json();
+          if(!data.ok){ showError(data.error || "Generation failed."); return; }
+    
+          codeEl.textContent = data.code;
+          out.style.display = "block";
+          copyBtn.style.display = "inline-block";
+          dlBtn.style.display = "inline-block";
+          dlBtn.textContent = "Download " + (data.filename || "file.js");
+          dlBtn.setAttribute("href", "data:text/javascript;charset=utf-8," + encodeURIComponent(data.code));
+          dlBtn.setAttribute("download", data.filename || "file.js");
+          toast("Generated!");
+        }catch(e){
+          showError("Network error.");
+        }
+      });
+    
+      copyBtn.addEventListener("click", async () => {
+        try{
+          await navigator.clipboard.writeText(codeEl.textContent || "");
+          toast("Copied!");
+        }catch(e){ showError("Copy failed."); }
+      });
+    })();
+    </script>
+{% endblock %}

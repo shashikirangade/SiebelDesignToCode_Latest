@@ -1,0 +1,39 @@
+<siebel:Applet name="contactssection" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <h2>Contacts 8</h2><div class="item-list contacts">
+<div class="item">
+<img alt="Profile" src="#"/>
+<div class="item-details">
+<p>Aaron Bell</p>
+<p>HR</p>
+<p>+277825387</p>
+</div>
+</div>
+<div class="item">
+<img alt="Profile" src="#"/>
+<div class="item-details">
+<p>Sean Moore</p>
+<p>Administrator</p>
+<p>+469875432</p>
+</div>
+</div>
+<div class="item">
+<img alt="Profile" src="#"/>
+<div class="item-details">
+<p>Jane Doe</p>
+<p>QA</p>
+<p>+6662354785</p>
+</div>
+</div>
+<div class="item">
+<img alt="Profile" src="#"/>
+<div class="item-details">
+<p>Brandie Knight</p>
+<p>Siebel Admin</p>
+<p>+37128272988</p>
+</div>
+</div>
+</div>
+  </siebel:ListRows>
+</siebel:Applet>

@@ -1,0 +1,43 @@
+2025-09-01 13:07:54,198 | INFO | STEP 1: Incoming Query
+{
+  "message": "test changes",
+  "context_type": ""
+}
+2025-09-01 13:07:54,198 | INFO | STEP 2: Vector Store Binding
+{
+  "vector_store_id": "vs_68ad78d1a864819192bf19b924275fa7",
+  "model": "gpt-4o"
+}
+2025-09-01 13:07:54,317 | INFO | STEP 3: Outgoing Request (Responses + file_search)
+{
+  "model": "gpt-4o",
+  "input": [
+    {
+      "role": "system",
+      "content": "You are a Siebel Open UI expert. Answer ONLY about Siebel Open UI. When code helps, return minimal, deployable PM/PR/WebTemplate/BS snippets with brief comments. Prefer concrete APIs like GetContainer, AttachPMBinding, BindEvents, etc."
+    },
+    {
+      "role": "user",
+      "content": "ContextType: Any\nUser Query: test changes"
+    }
+  ],
+  "tools": [
+    {
+      "type": "file_search"
+    }
+  ],
+  "tool_resources": {
+    "file_search": {
+      "vector_store_ids": [
+        "vs_68ad78d1a864819192bf19b924275fa7"
+      ]
+    }
+  },
+  "max_completion_tokens": 1200,
+  "temperature": 0.2
+}
+2025-09-01 13:07:54,318 | INFO | STEP ERROR
+{
+  "exception": "TypeError(\"Responses.create() got an unexpected keyword argument 'tool_resources'\")",
+  "trace": "Traceback (most recent call last):\n  File \"/Users/shashikirangade/Documents/SiebelLatestAPI 3/client_script_bot.py\", line 95, in ask_client_script_bot\n    resp = cli.responses.create(**req_payload)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Responses.create() got an unexpected keyword argument 'tool_resources'\n"
+}

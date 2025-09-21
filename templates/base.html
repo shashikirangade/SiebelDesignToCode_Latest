@@ -1,0 +1,65 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ strings.get('app_title', 'Design to Code') }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+<body class="dtc-body">
+  <header class="dtc-topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- Simple inline SVG icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" class="c-accent"/>
+          <path d="M7 13l3 3 7-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="brand-name">{{ strings.get('brand', 'Design to Code') }}</span>
+    </div>
+
+    <nav class="dtc-nav">
+      <div class="nav-item active">{{ strings.get('nav_webtemplates', 'Siebel WebTemplate') }}</div>
+      <div class="nav-item has-sub">
+        {{ strings.get('nav_openui', 'Open UI Files') }}
+        
+        <div class="submenu">
+          <a href="{{ url_for('pmpr_page') }}" class="submenu-item">PM/PR Generator</a>
+          <a href="ClientScriptBot" class="submenu-item">Generate Client Script</a>
+        </div>
+      </div>
+      <div class="nav-item">{{ strings.get('nav_workflows', 'Siebel Workflows') }}</div>
+      <div class="nav-item">{{ strings.get('nav_config', 'Configuration') }}</div>
+      <div class="nav-item">{{ strings.get('nav_scripting', 'Siebel Scripting') }}</div>
+    </nav>
+
+    <div class="top-actions">
+      <button class="ghost-btn" title="Add">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        New
+      </button>
+      <div class="profile">
+        <img src="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><circle cx='14' cy='14' r='14' fill='%235b5ce2'/><circle cx='14' cy='11' r='5' fill='white'/><rect x='6' y='18' width='16' height='6' rx='3' fill='white'/></svg>" alt="Admin">
+        <span>admin</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="dtc-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <div id="dtc-toaster" class="toaster" style="display:none"></div>
+
+  <div id="dtc-loading" class="loading-overlay" style="display:none">
+    <div class="spinner"></div>
+    <div class="loading-text">Working on it… generating high-fidelity HTML/CSS</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

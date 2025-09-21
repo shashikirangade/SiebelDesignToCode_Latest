@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "containers": [
+    {
+      "name": "Sidebar",
+      "role": "complementary",
+      "selector": ".sidebar",
+      "type": "container",
+      "children": [
+        {
+          "name": "CompanyInfo",
+          "role": "content",
+          "selector": ".company-info",
+          "type": "applet"
+        },
+        {
+          "name": "ContactsSection",
+          "role": "list",
+          "selector": ".contacts-section",
+          "type": "applet",
+          "item_selector": ".contacts .item"
+        },
+        {
+          "name": "ServiceRequestsSection",
+          "role": "list",
+          "selector": ".service-requests-section",
+          "type": "applet",
+          "item_selector": ".service-requests .item"
+        }
+      ]
+    },
+    {
+      "name": "MainContent",
+      "role": "main",
+      "selector": ".main-content",
+      "type": "container",
+      "children": [
+        {
+          "name": "TagBar",
+          "role": "navigation",
+          "selector": ".tag-bar",
+          "type": "applet"
+        },
+        {
+          "name": "Timeline",
+          "role": "list",
+          "selector": ".timeline",
+          "type": "applet",
+          "item_selector": ".timeline-entry"
+        }
+      ]
+    }
+  ]
+}

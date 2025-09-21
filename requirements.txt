@@ -1,0 +1,10 @@
+flask
+beautifulsoup4
+openai
+google-generativeai
+pillow
+requests
+tqdm
+python-dotenv
+qdrant-client
+python-dotenv

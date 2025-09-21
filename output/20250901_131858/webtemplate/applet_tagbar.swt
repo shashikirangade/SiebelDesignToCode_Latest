@@ -1,0 +1,6 @@
+<siebel:Applet name="tagbar" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <span class="tag">Appointment</span><span class="tag">Call</span><span class="tag">Email</span><span class="tag">Notes</span>
+  </siebel:ListRows>
+</siebel:Applet>

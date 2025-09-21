@@ -1,0 +1,92 @@
+2025-09-01 13:05:45,210 | WARNING |  * Debugger is active!
+2025-09-01 13:05:45,214 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:06:09,210 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:06:09,210 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:06:09,211 | INFO |  * Restarting with stat
+2025-09-01 13:06:09,576 | WARNING |  * Debugger is active!
+2025-09-01 13:06:09,580 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:06:21,684 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:06:21,684 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:06:21,684 | INFO |  * Restarting with stat
+2025-09-01 13:06:22,038 | WARNING |  * Debugger is active!
+2025-09-01 13:06:22,042 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:06:38,656 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:06:38,657 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:06:38,657 | INFO |  * Restarting with stat
+2025-09-01 13:06:40,072 | WARNING |  * Debugger is active!
+2025-09-01 13:06:40,079 | INFO |  * Debugger PIN: 326-464-429
+2025-09-01 13:06:55,595 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:06:55,595 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:06:55,596 | INFO |  * Restarting with stat
+2025-09-01 13:06:55,945 | WARNING |  * Debugger is active!
+2025-09-01 13:06:55,949 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:07:47,371 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:47] "GET / HTTP/1.1" 200 -
+2025-09-01 13:07:47,379 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:47] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 13:07:47,380 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:47] "[36mGET /static/css/theme.css HTTP/1.1[0m" 304 -
+2025-09-01 13:07:49,339 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:49] "GET /ClientScriptBot HTTP/1.1" 200 -
+2025-09-01 13:07:49,367 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:49] "[36mGET /static/css/theme.css HTTP/1.1[0m" 304 -
+2025-09-01 13:07:49,368 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:49] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2025-09-01 13:07:54,158 | INFO | API /client-script/ask | Incoming: test changes | Context: 
+2025-09-01 13:07:54,198 | INFO | STEP 1: Incoming Query
+{
+  "message": "test changes",
+  "context_type": ""
+}
+2025-09-01 13:07:54,198 | INFO | STEP 2: Vector Store Binding
+{
+  "vector_store_id": "vs_68ad78d1a864819192bf19b924275fa7",
+  "model": "gpt-4o"
+}
+2025-09-01 13:07:54,317 | INFO | STEP 3: Outgoing Request (Responses + file_search)
+{
+  "model": "gpt-4o",
+  "input": [
+    {
+      "role": "system",
+      "content": "You are a Siebel Open UI expert. Answer ONLY about Siebel Open UI. When code helps, return minimal, deployable PM/PR/WebTemplate/BS snippets with brief comments. Prefer concrete APIs like GetContainer, AttachPMBinding, BindEvents, etc."
+    },
+    {
+      "role": "user",
+      "content": "ContextType: Any\nUser Query: test changes"
+    }
+  ],
+  "tools": [
+    {
+      "type": "file_search"
+    }
+  ],
+  "tool_resources": {
+    "file_search": {
+      "vector_store_ids": [
+        "vs_68ad78d1a864819192bf19b924275fa7"
+      ]
+    }
+  },
+  "max_completion_tokens": 1200,
+  "temperature": 0.2
+}
+2025-09-01 13:07:54,318 | INFO | STEP ERROR
+{
+  "exception": "TypeError(\"Responses.create() got an unexpected keyword argument 'tool_resources'\")",
+  "trace": "Traceback (most recent call last):\n  File \"/Users/shashikirangade/Documents/SiebelLatestAPI 3/client_script_bot.py\", line 95, in ask_client_script_bot\n    resp = cli.responses.create(**req_payload)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: Responses.create() got an unexpected keyword argument 'tool_resources'\n"
+}
+2025-09-01 13:07:54,318 | INFO | API /client-script/ask | Answer: {'answer': "Error: Responses.create() got an unexpected keyword argument 'tool_resources'", 'html': False}
+2025-09-01 13:07:54,318 | INFO | 127.0.0.1 - - [01/Sep/2025 13:07:54] "POST /api/client-script/ask HTTP/1.1" 200 -
+2025-09-01 13:09:30,416 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:09:30,416 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:09:30,417 | INFO |  * Restarting with stat
+2025-09-01 13:09:30,781 | WARNING |  * Debugger is active!
+2025-09-01 13:09:30,785 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:09:53,681 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 13:09:53,681 | INFO | [33mPress CTRL+C to quit[0m
+2025-09-01 13:09:53,681 | INFO |  * Restarting with stat
+2025-09-01 13:09:54,042 | WARNING |  * Debugger is active!
+2025-09-01 13:09:54,046 | INFO |  * Debugger PIN: 611-755-208
+2025-09-01 13:10:14,701 | INFO |  * Detected change in '/Users/shashikirangade/Documents/SiebelLatestAPI 3/main_router.py', reloading
+2025-09-01 13:10:14,783 | INFO |  * Restarting with stat
