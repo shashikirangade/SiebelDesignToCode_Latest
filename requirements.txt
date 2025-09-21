@@ -8,3 +8,5 @@ tqdm
 python-dotenv
 qdrant-client
 python-dotenv
+markdown
+lxml

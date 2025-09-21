@@ -1,0 +1,48 @@
+<siebel:Applet name="sidebar" type="Generic">
+  <section aria-label="Contacts" class="contacts">
+<h2>Contacts</h2>
+<div class="contacts__list">
+<div class="contact-item">
+<p>Aaron Bell - HR</p>
+<p>278-5387</p>
+</div>
+<div class="contact-item">
+<p>Sean Moore - Administrator</p>
+<p>4698765432</p>
+</div>
+<div class="contact-item">
+<p>Jane Doe - QA</p>
+<p>+666 2354785</p>
+</div>
+<div class="contact-item">
+<p>Brandie Knight - Siebel Admin</p>
+<p>+37128272988</p>
+</div>
+</div>
+</section><section aria-label="Service Requests" class="service-requests">
+<h2>Service Requests</h2>
+<div class="service-requests__list">
+<div class="service-request-item">
+<p>Problems with internet - Electrical</p>
+<p>Dec 14, 2018</p>
+<p>3-Medium</p>
+</div>
+<div class="service-request-item">
+<p>Adjust internet limit - Installation</p>
+<p>Jan 9, 2019</p>
+<p>1-ASAP</p>
+</div>
+<!-- Add more items similarly -->
+</div>
+</section><section aria-label="Opportunities" class="opportunities">
+<h2>Opportunities</h2>
+<div class="opportunities__list">
+<div class="opportunity-item">
+<p>teST</p>
+<p>Feb 5, 2019</p>
+<p>$30.00</p>
+</div>
+<!-- Add more items similarly -->
+</div>
+</section>
+</siebel:Applet>

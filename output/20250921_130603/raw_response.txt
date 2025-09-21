@@ -1,0 +1,156 @@
+I'm unable to view or convert images directly. However, I can guide you on how to create an HTML structure and JSON manifest based on typical UI components like the one you described. Here's an example structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__info">
+            <h1>ABC Construction</h1>
+            <p>3712233445</p>
+            <p><a href="http://www.abgsc.com">www.abgsc.com</a></p>
+            <p>Darziema 91</p>
+        </div>
+    </header>
+    <main class="main-content" role="main">
+        <aside class="sidebar" role="complementary">
+            <section class="contacts" aria-label="Contacts">
+                <h2>Contacts</h2>
+                <div class="contacts__list">
+                    <div class="contact-item">
+                        <p>Aaron Bell - HR</p>
+                        <p>278-5387</p>
+                    </div>
+                    <div class="contact-item">
+                        <p>Sean Moore - Administrator</p>
+                        <p>4698765432</p>
+                    </div>
+                    <div class="contact-item">
+                        <p>Jane Doe - QA</p>
+                        <p>+666 2354785</p>
+                    </div>
+                    <div class="contact-item">
+                        <p>Brandie Knight - Siebel Admin</p>
+                        <p>+37128272988</p>
+                    </div>
+                </div>
+            </section>
+            <section class="service-requests" aria-label="Service Requests">
+                <h2>Service Requests</h2>
+                <div class="service-requests__list">
+                    <div class="service-request-item">
+                        <p>Problems with internet - Electrical</p>
+                        <p>Dec 14, 2018</p>
+                        <p>3-Medium</p>
+                    </div>
+                    <div class="service-request-item">
+                        <p>Adjust internet limit - Installation</p>
+                        <p>Jan 9, 2019</p>
+                        <p>1-ASAP</p>
+                    </div>
+                    <!-- Add more items similarly -->
+                </div>
+            </section>
+            <section class="opportunities" aria-label="Opportunities">
+                <h2>Opportunities</h2>
+                <div class="opportunities__list">
+                    <div class="opportunity-item">
+                        <p>teST</p>
+                        <p>Feb 5, 2019</p>
+                        <p>$30.00</p>
+                    </div>
+                    <!-- Add more items similarly -->
+                </div>
+            </section>
+        </aside>
+        <section class="activity-feed" aria-label="Activity Feed">
+            <h2>February 2019</h2>
+            <div class="activity-item">
+                <p>Brandie Knight - Appointment</p>
+                <p>Created by Brandie Knight at Feb 13, 2019, 8:45 AM</p>
+            </div>
+            <!-- Add more items similarly -->
+        </section>
+    </main>
+</body>
+</html>
+```
+
+```json
+{
+  "version": "1.0",
+  "containers": [
+    {
+      "name": "Header",
+      "role": "banner",
+      "selector": ".header",
+      "type": "container",
+      "children": [
+        {
+          "name": "HeaderInfo",
+          "role": "content",
+          "selector": ".header__info",
+          "type": "applet"
+        }
+      ]
+    },
+    {
+      "name": "MainContent",
+      "role": "main",
+      "selector": ".main-content",
+      "type": "container",
+      "children": [
+        {
+          "name": "Sidebar",
+          "role": "complementary",
+          "selector": ".sidebar",
+          "type": "container",
+          "children": [
+            {
+              "name": "ContactsSection",
+              "role": "list",
+              "selector": ".contacts",
+              "type": "applet",
+              "item_selector": ".contact-item"
+            },
+            {
+              "name": "ServiceRequestsSection",
+              "role": "list",
+              "selector": ".service-requests",
+              "type": "applet",
+              "item_selector": ".service-request-item"
+            },
+            {
+              "name": "OpportunitiesSection",
+              "role": "list",
+              "selector": ".opportunities",
+              "type": "applet",
+              "item_selector": ".opportunity-item"
+            }
+          ]
+        },
+        {
+          "name": "ActivityFeed",
+          "role": "region",
+          "selector": ".activity-feed",
+          "type": "container",
+          "children": [
+            {
+              "name": "ActivityItem",
+              "role": "content",
+              "selector": ".activity-item",
+              "type": "applet"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
