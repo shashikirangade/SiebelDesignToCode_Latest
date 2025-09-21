@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ABC Construction Dashboard</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="dashboard">
+<aside class="sidebar"><siebel:IncludeApplet file="applet_company_info.swt" name="company_info"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_contacts_list.swt" name="contacts_list"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_service_requests_list.swt" name="service_requests_list"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_opportunities_list.swt" name="opportunities_list"></siebel:IncludeApplet></aside>
+<main class="main-content"><siebel:IncludeApplet file="applet_filter_buttons.swt" name="filter_buttons"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_timeline.swt" name="timeline"></siebel:IncludeApplet></main>
+</div>
+</body>
+</html>

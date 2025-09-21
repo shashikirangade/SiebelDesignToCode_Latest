@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ABC Construction Dashboard</title>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="header"></header>
+<main class="main">
+<aside class="sidebar"><siebel:IncludeApplet file="applet_contacts_list.swt" name="contacts_list"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_service_requests_list.swt" name="service_requests_list"></siebel:IncludeApplet><siebel:IncludeApplet file="applet_opportunities_list.swt" name="opportunities_list"></siebel:IncludeApplet></aside>
+<section class="activity-feed"><siebel:IncludeApplet file="applet_activity_list.swt" name="activity_list"></siebel:IncludeApplet></section>
+</main>
+</body>
+</html>

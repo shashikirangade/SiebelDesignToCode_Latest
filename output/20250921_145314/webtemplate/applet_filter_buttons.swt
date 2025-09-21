@@ -1,0 +1,5 @@
+<siebel:Applet name="filter_buttons" type="Toolbar">
+  <siebel:ToolbarBody>
+    <html><body><button class="filter-button" od-Html="FormattedHTML" od-id="Filter_by_Appointment" od-type="control">Appointment</button><button class="filter-button" od-Html="FormattedHTML" od-id="Filter_by_Call" od-type="control">Call</button><button class="filter-button" od-Html="FormattedHTML" od-id="Filter_by_Email" od-type="control">Email</button><button class="filter-button" od-Html="FormattedHTML" od-id="Filter_by_Notes" od-type="control">Notes</button></body></html>
+  </siebel:ToolbarBody>
+</siebel:Applet>

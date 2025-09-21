@@ -1,0 +1,26 @@
+<siebel:Applet name="service_requests_list" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <div class="service-request">
+<p class="service-request__title">Problems with internet</p>
+<p class="service-request__type">Electrical</p>
+<p class="service-request__date">Dec 14, 2018</p>
+<p class="service-request__priority">3-Medium</p>
+</div><div class="service-request">
+<p class="service-request__title">Adjust internet limit</p>
+<p class="service-request__type">Installation</p>
+<p class="service-request__date">Jan 9, 2019</p>
+<p class="service-request__priority">1-ASAP</p>
+</div><div class="service-request">
+<p class="service-request__title">Problems with phone</p>
+<p class="service-request__type">Upgrade</p>
+<p class="service-request__date">Jan 4, 2019</p>
+<p class="service-request__priority">4-Low</p>
+</div><div class="service-request">
+<p class="service-request__title">Upgrade HDD</p>
+<p class="service-request__type">Upgrade</p>
+<p class="service-request__date">Jan 9, 2019</p>
+<p class="service-request__priority">3-Medium</p>
+</div>
+  </siebel:ListRows>
+</siebel:Applet>

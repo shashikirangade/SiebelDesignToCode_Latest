@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #444;
+}
+
+.header__logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header__title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.header__details {
+    margin: 0;
+    font-size: 14px;
+}
+
+.main {
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #222;
+    padding: 20px;
+}
+
+.contacts, .service-requests, .opportunities {
+    margin-bottom: 20px;
+}
+
+.contacts__title, .service-requests__title, .opportunities__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contacts__list, .service-requests__list, .opportunities__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact, .service-request, .opportunity {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact__image, .activity__image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact__info, .activity__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__name, .activity__name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.contact__role, .activity__type, .service-request__type, .opportunity__date {
+    font-size: 14px;
+    margin: 0;
+}
+
+.contact__phone, .activity__details, .service-request__date, .service-request__priority, .opportunity__value {
+    font-size: 12px;
+    margin: 0;
+}
+
+.activity-feed {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #333;
+}
+
+.activity-feed__header {
+    margin-bottom: 10px;
+}
+
+.activity-feed__title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.activity-feed__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}

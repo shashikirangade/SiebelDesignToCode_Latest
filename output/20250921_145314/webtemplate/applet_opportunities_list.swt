@@ -1,0 +1,22 @@
+<siebel:Applet name="opportunities_list" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <html><body><div class="opportunity-card">
+<p class="opportunity-title" od-Html="FormattedHTML" od-id="title" od-type="control">teST</p>
+<p class="opportunity-date" od-Html="FormattedHTML" od-id="date" od-type="control">Feb 5, 2019</p>
+<p class="opportunity-value" od-Html="FormattedHTML" od-id="value" od-type="control">$30.00</p>
+</div><div class="opportunity-card">
+<p class="opportunity-title">Salesforce Consult</p>
+<p class="opportunity-date">Feb 5, 2019</p>
+<p class="opportunity-value">$200.00</p>
+</div><div class="opportunity-card">
+<p class="opportunity-title">Siebel Consult</p>
+<p class="opportunity-date">Jan 9, 2019</p>
+<p class="opportunity-value">$2,000,000.00</p>
+</div><div class="opportunity-card">
+<p class="opportunity-title">Configuration Review</p>
+<p class="opportunity-date">Nov 10, 2019</p>
+<p class="opportunity-value">$100.00</p>
+</div></body></html>
+  </siebel:ListRows>
+</siebel:Applet>

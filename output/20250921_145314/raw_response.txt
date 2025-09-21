@@ -1,0 +1,434 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Construction Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="company-info">
+                <img src="logo.png" alt="Company Logo" class="company-logo">
+                <div class="company-details">
+                    <h1 class="company-name">ABC Construction</h1>
+                    <p class="company-id">3712233445</p>
+                    <p class="company-website">www.abcsc.com</p>
+                    <p class="company-address">Darzciema 91</p>
+                </div>
+            </div>
+            <section class="contacts-section">
+                <h2 class="section-title">Contacts <span class="count">8</span></h2>
+                <div class="contacts-list">
+                    <div class="contact-card">
+                        <img src="contact1.jpg" alt="Contact Photo" class="contact-photo">
+                        <div class="contact-info">
+                            <p class="contact-name">Aaron Bell</p>
+                            <p class="contact-role">HR</p>
+                            <p class="contact-phone">+271 278-5387</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <img src="contact2.jpg" alt="Contact Photo" class="contact-photo">
+                        <div class="contact-info">
+                            <p class="contact-name">Sean Moore</p>
+                            <p class="contact-role">Administrator</p>
+                            <p class="contact-phone">+469 8765432</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <img src="contact3.jpg" alt="Contact Photo" class="contact-photo">
+                        <div class="contact-info">
+                            <p class="contact-name">Jane Doe</p>
+                            <p class="contact-role">QA</p>
+                            <p class="contact-phone">+666 2354785</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <img src="contact4.jpg" alt="Contact Photo" class="contact-photo">
+                        <div class="contact-info">
+                            <p class="contact-name">Brandie Knight</p>
+                            <p class="contact-role">Siebel Admin</p>
+                            <p class="contact-phone">+371 28272998</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="service-requests-section">
+                <h2 class="section-title">Service Request <span class="count">5</span></h2>
+                <div class="service-requests-list">
+                    <div class="service-request-card">
+                        <p class="service-title">Problems with internet</p>
+                        <p class="service-type">Electrical</p>
+                        <p class="service-date">Dec 14, 2018</p>
+                        <p class="service-priority">3-Medium</p>
+                    </div>
+                    <div class="service-request-card">
+                        <p class="service-title">Adjust internet limit</p>
+                        <p class="service-type">Installation</p>
+                        <p class="service-date">Jan 9, 2019</p>
+                        <p class="service-priority">1-ASAP</p>
+                    </div>
+                    <div class="service-request-card">
+                        <p class="service-title">Problems with phone</p>
+                        <p class="service-type">Upgrade</p>
+                        <p class="service-date">Jan 4, 2019</p>
+                        <p class="service-priority">4-Low</p>
+                    </div>
+                    <div class="service-request-card">
+                        <p class="service-title">Upgrade HDD</p>
+                        <p class="service-type">Upgrade</p>
+                        <p class="service-date">Jan 9, 2019</p>
+                        <p class="service-priority">3-Medium</p>
+                    </div>
+                </div>
+            </section>
+            <section class="opportunities-section">
+                <h2 class="section-title">Opportunities <span class="count">7</span></h2>
+                <div class="opportunities-list">
+                    <div class="opportunity-card">
+                        <p class="opportunity-title">teST</p>
+                        <p class="opportunity-date">Feb 5, 2019</p>
+                        <p class="opportunity-value">$30.00</p>
+                    </div>
+                    <div class="opportunity-card">
+                        <p class="opportunity-title">Salesforce Consult</p>
+                        <p class="opportunity-date">Feb 5, 2019</p>
+                        <p class="opportunity-value">$200.00</p>
+                    </div>
+                    <div class="opportunity-card">
+                        <p class="opportunity-title">Siebel Consult</p>
+                        <p class="opportunity-date">Jan 9, 2019</p>
+                        <p class="opportunity-value">$2,000,000.00</p>
+                    </div>
+                    <div class="opportunity-card">
+                        <p class="opportunity-title">Configuration Review</p>
+                        <p class="opportunity-date">Nov 10, 2019</p>
+                        <p class="opportunity-value">$100.00</p>
+                    </div>
+                </div>
+            </section>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="filter-buttons">
+                    <button class="filter-button">Appointment</button>
+                    <button class="filter-button">Call</button>
+                    <button class="filter-button">Email</button>
+                    <button class="filter-button">Notes</button>
+                </div>
+            </header>
+            <section class="timeline">
+                <h2 class="timeline-month">February 2019</h2>
+                <div class="timeline-entry">
+                    <img src="user1.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Appointment</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 13, 2019, 8:45 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user2.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Email</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 11, 2019, 3:08 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user3.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Notes</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 7, 2019, 6:49 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user4.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Email</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 7, 2019, 5:01 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user5.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Appointment</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 7, 2019, 4:59 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user6.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Email</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 7, 2019, 4:00 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user7.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Email</p>
+                        <p class="entry-meta">Created By Brandie Knight at Feb 4, 2019, 7:53 AM</p>
+                    </div>
+                </div>
+                <h2 class="timeline-month">January 2019</h2>
+                <div class="timeline-entry">
+                    <img src="user8.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Email</p>
+                        <p class="entry-meta">Created By Brandie Knight at Jan 31, 2019, 4:02 AM</p>
+                    </div>
+                </div>
+                <div class="timeline-entry">
+                    <img src="user9.jpg" alt="User Photo" class="user-photo">
+                    <div class="entry-details">
+                        <p class="entry-name">Brandie Knight</p>
+                        <p class="entry-type">Call</p>
+                        <p class="entry-meta">Created By Brandie Knight at Jan 31, 2019, 1:28 AM</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+```
+
+```css
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+}
+
+.dashboard {
+    display: flex;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #000;
+    padding: 20px;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.company-details {
+    line-height: 1.5;
+}
+
+.section-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.count {
+    font-weight: bold;
+}
+
+.contacts-list, .service-requests-list, .opportunities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contact-card, .service-request-card, .opportunity-card {
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    width: calc(50% - 10px);
+}
+
+.contact-photo, .user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact-info, .entry-details {
+    line-height: 1.2;
+}
+
+.main-content {
+    width: 75%;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-button {
+    background-color: #ff9800;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.timeline {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.timeline-month {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.timeline-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.entry-details {
+    margin-left: 10px;
+}
+
+.entry-name {
+    font-weight: bold;
+}
+
+.entry-type {
+    font-style: italic;
+}
+```
+
+```json
+{
+  "page": {
+    "title": "ABC Construction Dashboard",
+    "layout": "mixed",
+    "containers": [
+      {
+        "name": "Sidebar",
+        "role": "Nav",
+        "selector": ".sidebar",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Company Info",
+            "role": "Content",
+            "selector": ".company-info",
+            "fields": [
+              {"label":"Company Logo","dataField":"logo","selector":".company-logo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Company Name","dataField":"name","selector":".company-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Company ID","dataField":"id","selector":".company-id","controlType":"Text","required":false,"readonly":true},
+              {"label":"Company Website","dataField":"website","selector":".company-website","controlType":"Link","required":false,"readonly":true},
+              {"label":"Company Address","dataField":"address","selector":".company-address","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Contacts List",
+            "role": "List",
+            "selector": ".contacts-list",
+            "item_selector": ".contact-card",
+            "entityHint": "Contact",
+            "fields": [
+              {"label":"Contact Photo","dataField":"photo","selector":".contact-photo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Contact Name","dataField":"name","selector":".contact-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Contact Role","dataField":"role","selector":".contact-role","controlType":"Text","required":false,"readonly":true},
+              {"label":"Contact Phone","dataField":"phone","selector":".contact-phone","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Service Requests List",
+            "role": "List",
+            "selector": ".service-requests-list",
+            "item_selector": ".service-request-card",
+            "entityHint": "Service Request",
+            "fields": [
+              {"label":"Service Title","dataField":"title","selector":".service-title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Service Type","dataField":"type","selector":".service-type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Service Date","dataField":"date","selector":".service-date","controlType":"Date","required":false,"readonly":true},
+              {"label":"Service Priority","dataField":"priority","selector":".service-priority","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Opportunities List",
+            "role": "List",
+            "selector": ".opportunities-list",
+            "item_selector": ".opportunity-card",
+            "entityHint": "Opportunity",
+            "fields": [
+              {"label":"Opportunity Title","dataField":"title","selector":".opportunity-title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Opportunity Date","dataField":"date","selector":".opportunity-date","controlType":"Date","required":false,"readonly":true},
+              {"label":"Opportunity Value","dataField":"value","selector":".opportunity-value","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Main Content",
+        "role": "Main",
+        "selector": ".main-content",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Filter Buttons",
+            "role": "Toolbar",
+            "selector": ".filter-buttons",
+            "fields": [],
+            "actions": [
+              {"name":"Filter by Appointment","selector":".filter-button:nth-child(1)","type":"Command"},
+              {"name":"Filter by Call","selector":".filter-button:nth-child(2)","type":"Command"},
+              {"name":"Filter by Email","selector":".filter-button:nth-child(3)","type":"Command"},
+              {"name":"Filter by Notes","selector":".filter-button:nth-child(4)","type":"Command"}
+            ]
+          },
+          {
+            "name": "Timeline",
+            "role": "List",
+            "selector": ".timeline",
+            "item_selector": ".timeline-entry",
+            "entityHint": "None",
+            "fields": [
+              {"label":"User Photo","dataField":"photo","selector":".user-photo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Entry Name","dataField":"name","selector":".entry-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Entry Type","dataField":"type","selector":".entry-type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Entry Meta","dataField":"meta","selector":".entry-meta","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ],
+        "children": []
+      }
+    ]
+  }
+}
+```

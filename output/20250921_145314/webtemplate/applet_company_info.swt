@@ -1,0 +1,10 @@
+<siebel:Applet name="company_info" type="Form">
+  <siebel:FormBody>
+    <html><body><img alt="Company Logo" class="company-logo" od-Html="FormattedHTML" od-id="logo" od-type="control" src="logo.png"/><div class="company-details">
+<h1 class="company-name" od-Html="FormattedHTML" od-id="name" od-type="control">ABC Construction</h1>
+<p class="company-id" od-Html="FormattedHTML" od-id="id" od-type="control">3712233445</p>
+<p class="company-website" od-Html="FormattedHTML" od-id="website" od-type="control">www.abcsc.com</p>
+<p class="company-address" od-Html="FormattedHTML" od-id="address" od-type="control">Darzciema 91</p>
+</div></body></html>
+  </siebel:FormBody>
+</siebel:Applet>

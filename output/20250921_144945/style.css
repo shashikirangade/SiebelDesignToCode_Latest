@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #303030;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #424242;
+}
+
+.header__logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header__company-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__company-name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.header__company-details {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #212121;
+    padding: 10px;
+}
+
+.contacts, .service-requests, .opportunities {
+    margin-bottom: 20px;
+}
+
+.contacts__title, .service-requests__title, .opportunities__title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contacts__list, .service-requests__list, .opportunities__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact, .service-request, .opportunity {
+    background-color: #424242;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.contact__image, .content__item-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact__info, .content__item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__name, .service-request__title, .opportunity__title, .content__item-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.contact__role, .service-request__type, .opportunity__date, .content__item-type {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.contact__phone, .service-request__date, .opportunity__value, .content__item-details {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.service-request__priority {
+    font-size: 0.8em;
+    color: #ff9800;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.content__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.content__title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.content__filters {
+    display: flex;
+    gap: 5px;
+}
+
+.content__filter {
+    background-color: #ff9800;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.content__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content__item {
+    background-color: #424242;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}

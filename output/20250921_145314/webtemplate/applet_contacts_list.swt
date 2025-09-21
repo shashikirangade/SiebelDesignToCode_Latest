@@ -1,0 +1,34 @@
+<siebel:Applet name="contacts_list" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <html><body><div class="contact-card">
+<img alt="Contact Photo" class="contact-photo" od-Html="FormattedHTML" od-id="photo" od-type="control" src="contact1.jpg"/>
+<div class="contact-info">
+<p class="contact-name" od-Html="FormattedHTML" od-id="name" od-type="control">Aaron Bell</p>
+<p class="contact-role" od-Html="FormattedHTML" od-id="role" od-type="control">HR</p>
+<p class="contact-phone" od-Html="FormattedHTML" od-id="phone" od-type="control">+271 278-5387</p>
+</div>
+</div><div class="contact-card">
+<img alt="Contact Photo" class="contact-photo" src="contact2.jpg"/>
+<div class="contact-info">
+<p class="contact-name">Sean Moore</p>
+<p class="contact-role">Administrator</p>
+<p class="contact-phone">+469 8765432</p>
+</div>
+</div><div class="contact-card">
+<img alt="Contact Photo" class="contact-photo" src="contact3.jpg"/>
+<div class="contact-info">
+<p class="contact-name">Jane Doe</p>
+<p class="contact-role">QA</p>
+<p class="contact-phone">+666 2354785</p>
+</div>
+</div><div class="contact-card">
+<img alt="Contact Photo" class="contact-photo" src="contact4.jpg"/>
+<div class="contact-info">
+<p class="contact-name">Brandie Knight</p>
+<p class="contact-role">Siebel Admin</p>
+<p class="contact-phone">+371 28272998</p>
+</div>
+</div></body></html>
+  </siebel:ListRows>
+</siebel:Applet>

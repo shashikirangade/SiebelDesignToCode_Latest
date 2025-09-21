@@ -1,0 +1,96 @@
+{
+  "page": {
+    "title": "Dashboard",
+    "layout": "mixed",
+    "containers": [
+      {
+        "name": "Header",
+        "role": "Banner",
+        "selector": ".header",
+        "type": "container",
+        "applets": []
+      },
+      {
+        "name": "Sidebar",
+        "role": "Nav",
+        "selector": ".sidebar",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Contacts",
+            "role": "List",
+            "selector": ".contacts",
+            "item_selector": ".contact",
+            "entityHint": "Contact",
+            "fields": [
+              {"label": "Name", "dataField": "name", "selector": ".contact__name", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Role", "dataField": "role", "selector": ".contact__role", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Phone", "dataField": "phone", "selector": ".contact__phone", "controlType": "Text", "required": false, "readonly": true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Service Requests",
+            "role": "List",
+            "selector": ".service-requests",
+            "item_selector": ".service-request",
+            "entityHint": "Service Request",
+            "fields": [
+              {"label": "Title", "dataField": "title", "selector": ".service-request__title", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Type", "dataField": "type", "selector": ".service-request__type", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Date", "dataField": "date", "selector": ".service-request__date", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Priority", "dataField": "priority", "selector": ".service-request__priority", "controlType": "Text", "required": false, "readonly": true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Opportunities",
+            "role": "List",
+            "selector": ".opportunities",
+            "item_selector": ".opportunity",
+            "entityHint": "Opportunity",
+            "fields": [
+              {"label": "Title", "dataField": "title", "selector": ".opportunity__title", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Date", "dataField": "date", "selector": ".opportunity__date", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Value", "dataField": "value", "selector": ".opportunity__value", "controlType": "Text", "required": false, "readonly": true}
+            ],
+            "actions": []
+          }
+        ]
+      },
+      {
+        "name": "Content",
+        "role": "Main",
+        "selector": ".content",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Content Header",
+            "role": "Toolbar",
+            "selector": ".content__header",
+            "fields": [],
+            "actions": [
+              {"name": "Filter Appointment", "selector": ".content__filter:nth-child(1)", "type": "Command"},
+              {"name": "Filter Call", "selector": ".content__filter:nth-child(2)", "type": "Command"},
+              {"name": "Filter Email", "selector": ".content__filter:nth-child(3)", "type": "Command"},
+              {"name": "Filter Notes", "selector": ".content__filter:nth-child(4)", "type": "Command"}
+            ]
+          },
+          {
+            "name": "Content List",
+            "role": "List",
+            "selector": ".content__list",
+            "item_selector": ".content__item",
+            "entityHint": "None",
+            "fields": [
+              {"label": "Name", "dataField": "name", "selector": ".content__item-name", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Type", "dataField": "type", "selector": ".content__item-type", "controlType": "Text", "required": false, "readonly": true},
+              {"label": "Details", "dataField": "details", "selector": ".content__item-details", "controlType": "Text", "required": false, "readonly": true}
+            ],
+            "actions": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+<siebel:Applet name="opportunities_list" type="List">
+  <siebel:ListHeader/>
+  <siebel:ListRows>
+    <div class="opportunity">
+<p class="opportunity__title">teST</p>
+<p class="opportunity__date">Feb 5, 2019</p>
+<p class="opportunity__value">$30.00</p>
+</div><div class="opportunity">
+<p class="opportunity__title">Salesforce Consult</p>
+<p class="opportunity__date">Feb 5, 2019</p>
+<p class="opportunity__value">$200.00</p>
+</div><div class="opportunity">
+<p class="opportunity__title">Siebel Consult</p>
+<p class="opportunity__date">Jan 9, 2019</p>
+<p class="opportunity__value">$2,000,000.00</p>
+</div><div class="opportunity">
+<p class="opportunity__title">Configuration Review</p>
+<p class="opportunity__date">Nov 10, 2019</p>
+<p class="opportunity__value">$100.00</p>
+</div>
+  </siebel:ListRows>
+</siebel:Applet>

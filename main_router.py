@@ -472,7 +472,8 @@ def generate_applet_file(child_data: dict, target_dir: Path):
     inner_html = ""
     if element.contents:
         inner_html = "".join(str(child) for child in element.contents if child != "\n")
-    
+
+    inner_html = apply_od_attributes(inner_html, config)
     # Generate the applet template based on role
     safe_name = _safe_name(config["name"])
     tpl = _role_to_applet_template(config["name"], config.get("role", ""), inner_html)
@@ -487,6 +488,7 @@ def generate_applet_file(child_data: dict, target_dir: Path):
         "file": applet_file.name,
         "status": "ok"
     }
+
 def generate_siebel_templates_from_hierarchy(html: str, manifest: dict, out_dir: Path, workdir: str):
     """Generate Siebel templates using hierarchical manifest structure.
        Handles applets directly under containers and nested containers.
@@ -548,6 +550,134 @@ def generate_siebel_templates_from_hierarchy(html: str, manifest: dict, out_dir:
         "applets": written,
         "view": f"/download/{workdir}/webtemplate/view_template.swt"
     }
+def _od_safe(s: str) -> str:
+    s = (s or "").strip()
+    s = re.sub(r"[^A-Za-z0-9]+", "_", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "Field"
+
+def _derive_od_id(field_dict, node, fallback=""):
+    if isinstance(field_dict, dict):
+        for k in ("dataField", "label"):
+            v = field_dict.get(k)
+            if v:
+                return _od_safe(v)
+    if node is not None:
+        if node.has_attr("id"):
+            return _od_safe(node["id"])
+        if node.has_attr("name"):
+            return _od_safe(node["name"])
+        if node.has_attr("class"):
+            return _od_safe("_".join(node["class"]))
+    if fallback:
+        return _od_safe(fallback)
+    return "Field"
+
+def _is_buttonish(tag, el):
+    if tag == "button":
+        return True
+    if tag == "a":
+        role = (el.get("role") or "").lower()
+        classes = " ".join(el.get("class", [])).lower()
+        return "button" in role or "btn" in classes
+    return False
+
+def apply_od_attributes(inner_html: str, applet: dict) -> str:
+    """Stamp od-* attributes onto labels/controls per applet manifest."""
+    soup = BeautifulSoup(inner_html, "lxml")
+    fields = applet.get("fields") or []
+    actions = applet.get("actions") or []
+    role = (applet.get("role") or "").lower()
+    item_sel = applet.get("item_selector")
+
+    # 1) Use manifest field selectors when available
+    for f in fields:
+        sel = f.get("selector")
+        if not sel:
+            continue
+        node = soup.select_one(sel)
+        if not node:
+            continue
+
+        tag = (node.name or "").lower()
+
+        # try to find paired <label for=...> or sibling label-ish node
+        label_node = None
+        if node.has_attr("id"):
+            label_node = soup.find("label", attrs={"for": node["id"]})
+        if not label_node:
+            prev = node.find_previous_sibling()
+            if prev and (prev.name == "label" or "label" in " ".join(prev.get("class", [])).lower()):
+                label_node = prev
+        if label_node:
+            label_node["od-type"] = "label"
+            label_node["od-Html"] = "DisplayName"
+            label_node["od-id"] = _derive_od_id(f, label_node, f.get("label") or "")
+
+        od_id = _derive_od_id(f, node, f.get("label") or "")
+        if tag in ("input", "select", "textarea") or _is_buttonish(tag, node) or tag == "img":
+            node["od-type"] = "control"
+            node["od-Html"] = "FormattedHTML"
+            node["od-id"] = od_id
+        else:
+            node["od-type"] = "control"
+            node["od-Html"] = "FormattedHTML"
+            node["od-id"] = od_id
+
+    # 2) Actions
+    for act in actions:
+        sel = act.get("selector")
+        name = (act.get("name") or "").strip()
+        if not sel or not name:
+            continue
+        node = soup.select_one(sel)
+        if not node:
+            continue
+        node["od-type"] = "control"
+        node["od-Html"] = "FormattedHTML"
+        node["od-id"] = _od_safe(name)
+
+    # 3) If List without explicit fields, mark simple text nodes in each row
+    if role == "list" and item_sel and not fields:
+        for row in soup.select(item_sel):
+            for n in row.select("span, p, div"):
+                if n.has_attr("od-type"):
+                    continue
+                txt = n.get_text(strip=True)
+                if not txt or len(list(n.children)) > 3:
+                    continue
+                n["od-type"] = "control"
+                n["od-Html"] = "FormattedHTML"
+                n["od-id"] = _od_safe(txt[:24])
+
+    # 4) Heuristic fallback if no fields at all (forms/detail)
+    if not fields:
+        for lbl in soup.find_all("label"):
+            if not lbl.has_attr("od-type"):
+                lbl["od-type"] = "label"
+                lbl["od-Html"] = "DisplayName"
+                lbl["od-id"] = _derive_od_id(None, lbl, lbl.get_text(strip=True))
+        for inp in soup.find_all(["input", "select", "textarea"]):
+            if not inp.has_attr("od-type"):
+                inp["od-type"] = "control"
+                inp["od-Html"] = "FormattedHTML"
+                inp["od-id"] = _derive_od_id(None, inp)
+        for im in soup.find_all("img"):
+            if not im.has_attr("od-type"):
+                im["od-type"] = "control"
+                im["od-Html"] = "FormattedHTML"
+                im["od-id"] = _derive_od_id(None, im, im.get("alt", "Image"))
+        for n in soup.find_all(["span", "p", "div"]):
+            if n.has_attr("od-type"):
+                continue
+            txt = n.get_text(strip=True)
+            if not txt or len(list(n.children)) > 3:
+                continue
+            n["od-type"] = "control"
+            n["od-Html"] = "FormattedHTML"
+            n["od-id"] = _derive_od_id(None, n, txt)
+
+    return str(soup)
 
 # ---- deep seek end----#
 @app.post("/api/convert")

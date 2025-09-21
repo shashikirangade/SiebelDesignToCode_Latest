@@ -1,0 +1,106 @@
+{
+  "page": {
+    "title": "ABC Construction Dashboard",
+    "layout": "mixed",
+    "containers": [
+      {
+        "name": "Sidebar",
+        "role": "Nav",
+        "selector": ".sidebar",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Company Info",
+            "role": "Content",
+            "selector": ".company-info",
+            "fields": [
+              {"label":"Company Logo","dataField":"logo","selector":".company-logo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Company Name","dataField":"name","selector":".company-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Company ID","dataField":"id","selector":".company-id","controlType":"Text","required":false,"readonly":true},
+              {"label":"Company Website","dataField":"website","selector":".company-website","controlType":"Link","required":false,"readonly":true},
+              {"label":"Company Address","dataField":"address","selector":".company-address","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Contacts List",
+            "role": "List",
+            "selector": ".contacts-list",
+            "item_selector": ".contact-card",
+            "entityHint": "Contact",
+            "fields": [
+              {"label":"Contact Photo","dataField":"photo","selector":".contact-photo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Contact Name","dataField":"name","selector":".contact-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Contact Role","dataField":"role","selector":".contact-role","controlType":"Text","required":false,"readonly":true},
+              {"label":"Contact Phone","dataField":"phone","selector":".contact-phone","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Service Requests List",
+            "role": "List",
+            "selector": ".service-requests-list",
+            "item_selector": ".service-request-card",
+            "entityHint": "Service Request",
+            "fields": [
+              {"label":"Service Title","dataField":"title","selector":".service-title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Service Type","dataField":"type","selector":".service-type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Service Date","dataField":"date","selector":".service-date","controlType":"Date","required":false,"readonly":true},
+              {"label":"Service Priority","dataField":"priority","selector":".service-priority","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Opportunities List",
+            "role": "List",
+            "selector": ".opportunities-list",
+            "item_selector": ".opportunity-card",
+            "entityHint": "Opportunity",
+            "fields": [
+              {"label":"Opportunity Title","dataField":"title","selector":".opportunity-title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Opportunity Date","dataField":"date","selector":".opportunity-date","controlType":"Date","required":false,"readonly":true},
+              {"label":"Opportunity Value","dataField":"value","selector":".opportunity-value","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ],
+        "children": []
+      },
+      {
+        "name": "Main Content",
+        "role": "Main",
+        "selector": ".main-content",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Filter Buttons",
+            "role": "Toolbar",
+            "selector": ".filter-buttons",
+            "fields": [],
+            "actions": [
+              {"name":"Filter by Appointment","selector":".filter-button:nth-child(1)","type":"Command"},
+              {"name":"Filter by Call","selector":".filter-button:nth-child(2)","type":"Command"},
+              {"name":"Filter by Email","selector":".filter-button:nth-child(3)","type":"Command"},
+              {"name":"Filter by Notes","selector":".filter-button:nth-child(4)","type":"Command"}
+            ]
+          },
+          {
+            "name": "Timeline",
+            "role": "List",
+            "selector": ".timeline",
+            "item_selector": ".timeline-entry",
+            "entityHint": "None",
+            "fields": [
+              {"label":"User Photo","dataField":"photo","selector":".user-photo","controlType":"Image","required":false,"readonly":true},
+              {"label":"Entry Name","dataField":"name","selector":".entry-name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Entry Type","dataField":"type","selector":".entry-type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Entry Meta","dataField":"meta","selector":".entry-meta","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ],
+        "children": []
+      }
+    ]
+  }
+}

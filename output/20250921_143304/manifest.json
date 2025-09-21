@@ -1,0 +1,84 @@
+{
+  "page": {
+    "title": "ABC Construction Dashboard",
+    "layout": "mixed",
+    "containers": [
+      {
+        "name": "Header",
+        "role": "Banner",
+        "selector": ".header",
+        "type": "container",
+        "applets": []
+      },
+      {
+        "name": "Sidebar",
+        "role": "Nav",
+        "selector": ".sidebar",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Contacts List",
+            "role": "List",
+            "selector": ".contacts__list",
+            "item_selector": ".contact",
+            "entityHint": "Contact",
+            "fields": [
+              {"label":"Name","dataField":"name","selector":".contact__name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Role","dataField":"role","selector":".contact__role","controlType":"Text","required":false,"readonly":true},
+              {"label":"Phone","dataField":"phone","selector":".contact__phone","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Service Requests List",
+            "role": "List",
+            "selector": ".service-requests__list",
+            "item_selector": ".service-request",
+            "entityHint": "Service Request",
+            "fields": [
+              {"label":"Title","dataField":"title","selector":".service-request__title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Type","dataField":"type","selector":".service-request__type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Date","dataField":"date","selector":".service-request__date","controlType":"Text","required":false,"readonly":true},
+              {"label":"Priority","dataField":"priority","selector":".service-request__priority","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          },
+          {
+            "name": "Opportunities List",
+            "role": "List",
+            "selector": ".opportunities__list",
+            "item_selector": ".opportunity",
+            "entityHint": "Opportunity",
+            "fields": [
+              {"label":"Title","dataField":"title","selector":".opportunity__title","controlType":"Text","required":false,"readonly":true},
+              {"label":"Date","dataField":"date","selector":".opportunity__date","controlType":"Text","required":false,"readonly":true},
+              {"label":"Value","dataField":"value","selector":".opportunity__value","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ]
+      },
+      {
+        "name": "Activity Feed",
+        "role": "Content",
+        "selector": ".activity-feed",
+        "type": "container",
+        "applets": [
+          {
+            "name": "Activity List",
+            "role": "List",
+            "selector": ".activity-feed__list",
+            "item_selector": ".activity",
+            "entityHint": "None",
+            "fields": [
+              {"label":"Name","dataField":"name","selector":".activity__name","controlType":"Text","required":false,"readonly":true},
+              {"label":"Type","dataField":"type","selector":".activity__type","controlType":"Text","required":false,"readonly":true},
+              {"label":"Details","dataField":"details","selector":".activity__details","controlType":"Text","required":false,"readonly":true}
+            ],
+            "actions": []
+          }
+        ]
+      }
+    ]
+  }
+}
